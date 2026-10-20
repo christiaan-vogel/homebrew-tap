@@ -1,0 +1,14 @@
+{
+  "entries": {
+    "cmd-1792494169399": {
+      "key": "cmd-1792494169399",
+      "value": "{\"command\":\"./scripts/make-cask.sh 2>&1\\nTAP=/Users/christiaanvogel/Documents/Claude/Projects/AdvIP/homebrew-tap\\ncat > \\\"$TAP/README.md\\\" <<'MD'\\n# Bezalel Software — Homebrew tap\\n\\n```sh\\nbrew tap christiaan-vogel/tap\\nbrew install --cask surveyor\\n```\\n\\n## Surveyor\\n\\nA network scanner for macOS. Sweeps the subnet you are on, names what it\\nfinds, checks it for exposed services, and tells you what has changed since\\nyour last visit. Requires macOS 15 (Sequoia) or later; runs natively on both\\nApple Silicon and Intel.\\n\\nUpdates come through Homebrew like anything else:\\n\\n```sh\\nbrew upgrade --cask surveyor\\n```\\n\\n### The first launch will be blocked\\n\\nSurveyor is signed, but it is **not notarised by Apple**. Notarising requires\\na paid Apple Developer account. macOS blocks anything it has not seen\\nnotarised, and Homebrew quarantines every download, so the first launch fails\\nwith *\\\"Apple could not verify Surveyor is free of malware\\\"*.\\n\\nOnce, after which it behaves like any other app:\\n\\n1. Open Surveyor from Applications, and click **Done** on the warning.\\n2. Open **System Settings → Privacy & Security**.\\n3. Scroll to Security. There is a line saying Surveyor was blocked, with an\\n   **Open Anyway** button beside it. Click that and authenticate.\\n\\nOr the same thing in one line:\\n\\n```sh\\nxattr -dr com.apple.quarantine /Applications/Surveyor.app\\n```\\n\\nThis is also why Surveyor is not in the official `homebrew/cask` tap: since\\n2026-09-01 that tap disables casks that fail Gatekeeper, and Homebrew 7 has\\nremoved `--no-quarantine` entirely. Personal taps are exempt, which is what\\nthis is.\\n\\n### Permissions it asks for\\n\\n**Local Network** — required. It is how Surveyor sees anything at all;\\ndecline it and every scan comes back empty.\\n\\n**Location** — optional, and not really about location. macOS classifies\\nWi-Fi network names as location data, so this is only what lets the Wi-Fi\\nanalyser name the networks around you. Nothing about your position is read\\nor stored.\\n\\n### Removing it\\n\\n```sh\\nbrew uninstall --cask survey …[truncated]\",\"exitCode\":0,\"success\":true}",
+      "namespace": "commands",
+      "storedAt": "2026-10-20T11:02:49.399Z",
+      "lastAccessed": "2026-10-20T11:02:49.399Z",
+      "accessCount": 0,
+      "expiresAt": "2026-11-19T11:02:49.399Z"
+    }
+  },
+  "version": "3.0.0"
+}
