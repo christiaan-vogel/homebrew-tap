@@ -1,0 +1,6 @@
+# Agent tooling artifacts — never part of this tap, and this repo is public
+.claude-flow/
+.swarm/
+
+# macOS
+.DS_Store
