@@ -1,15 +1,16 @@
 # Bezalel Software — Homebrew tap
 
 ```sh
-brew tap christiaan-vogel/tap
-brew trust christiaan-vogel/tap
-brew install --cask surveyor
+brew install --cask christiaan-vogel/tap/surveyor
 ```
 
-The `brew trust` step is not optional. Homebrew 7 refuses to load a cask from
-a third-party tap until you say you trust it — *"Refusing to load cask … from
-untrusted tap"* — and the install fails outright without it. Which is the
-right default: a tap is somebody else's code deciding what runs on your Mac.
+One line. Naming the tap in full is enough — Homebrew taps it, trusts it and
+installs in the same breath, so there is no separate `brew tap` or `brew
+trust` step. Afterwards it is just `surveyor`:
+
+```sh
+brew upgrade --cask surveyor
+```
 
 ## Surveyor
 
@@ -18,11 +19,9 @@ finds, checks it for exposed services, and tells you what has changed since
 your last visit. Requires macOS 15 (Sequoia) or later; runs natively on both
 Apple Silicon and Intel.
 
-Updates come through Homebrew like anything else:
-
-```sh
-brew upgrade --cask surveyor
-```
+Surveyor checks this tap for new releases itself, once a day, and tells you
+when one lands — it never updates itself, because Homebrew owns the install.
+Turn it off under **Surveyor → Check for Updates Automatically**.
 
 ### The first launch will be blocked
 
